@@ -49,6 +49,8 @@ const serviceTransferStatuses = [
  * @param linodeLabel - Label for Linode for which to initiate transfer.
  */
 const initiateLinodeTransfer = (linodeLabel: string) => {
+  cy.get('[id="search-by-label"]').click().type(linodeLabel);
+
   cy.findByText(linodeLabel)
     .should('be.visible')
     .closest('tr')
