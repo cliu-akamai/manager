@@ -678,3 +678,35 @@ export const mockGetMaintenance = (
     }
   });
 };
+
+/**
+ * Mocks POST request to enable the Linode Managed.
+ *
+ * @returns Cypress chainable.
+ */
+export const mockEnableLinodeManaged = (): Cypress.Chainable<null> => {
+  return cy.intercept(
+    'POST',
+    apiMatcher('account/settings/managed-enable'),
+    makeResponse()
+  );
+};
+
+/**
+ * Mocks POST request to to enable the Linode Managed and mocks an error response.
+ *
+ * @param errorMessage - API error message with which to mock response.
+ * @param statusCode - HTTP status code with which to mock response.
+ *
+ * @returns Cypress chainable.
+ */
+export const mockEnableLinodeManagedError = (
+  errorMessage: string = 'An unknown error has occurred',
+  statusCode: number = 400
+) => {
+  return cy.intercept(
+    'POST',
+    apiMatcher('account/settings/managed-enable'),
+    makeErrorResponse(errorMessage, statusCode)
+  );
+};
