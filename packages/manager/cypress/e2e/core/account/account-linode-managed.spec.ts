@@ -93,7 +93,7 @@ describe('Account Linode Managed', () => {
    * - Confirms Cloud Manager behavior when a restricted user attempts to enable Linode Managed.
    * - Confirms that API error response message is displayed in confirmation dialog.
    */
-  it('restricted users cannot cancel account', () => {
+  it('restricted users cannot enable Managed', () => {
     const mockAccount = accountFactory.build();
     const mockProfile = profileFactory.build({
       username: 'mock-restricted-user',
