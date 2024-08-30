@@ -30,13 +30,13 @@ describe('Account Linode Managed', () => {
    * - Confirms that user is told about the Managed price.
    * - Confirms that Cloud Manager displays the Managed state.
    */
-  it.only('users can enable Linode Managed', () => {
+  it('users can enable Linode Managed', () => {
     const mockAccount = accountFactory.build();
     const mockProfile = profileFactory.build({
       username: 'mock-user',
       restricted: false,
     });
-    const mockLinodes = new Array(4).fill(null).map(
+    const mockLinodes = new Array(5).fill(null).map(
       (item: null, index: number): Linode => {
         return linodeFactory.build({
           label: `Linode ${index}`,
